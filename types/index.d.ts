@@ -11,20 +11,21 @@ export interface BridgeConfiguration {
 }
 
 export interface BridgeModels {
-    [metadataType: string]: {
-        apiEndpoint: string;
-        attributeProperties: any;
-        displayName: string;
-        identifiableObject: boolean;
-        isMetaData: boolean;
-        isShareable: boolean;
-        javaClass: string;
-        modelProperties: any;
-        modelValidations: any;
-        name: string;
-        plural: string;
-        translatable: boolean;
-    };
+    [metadataType: string]: BridgeModel;
+}
+
+export interface BridgeModel {
+    apiEndpoint: string;
+    displayName: string;
+    isIdentifiable: boolean;
+    isMetadata: boolean;
+    isShareable: boolean;
+    isPersisted: string;
+    properties: any;
+    references: any;
+    name: string;
+    collectionName: string;
+    relativeApiEndpoint: string;
 }
 
 export type BridgeMetadata = any;

@@ -1,7 +1,7 @@
 import _ from "lodash";
 
 import { BridgeConfiguration, BridgeMetadata, BridgeModels } from "./types";
-import { getMetadata } from "./utils/axios";
+import { getMetadata, getSchemas } from "./utils/axios";
 import { uidRegEx } from "./utils/metadata";
 import { defaultConfig } from "./models/configuration";
 import { timeout } from "./utils";
@@ -34,6 +34,8 @@ export default class Bridge {
      */
     public init = (config: BridgeConfiguration = {}): void => {
         this.config = { ...this.config, ...config };
+
+        getSchemas(config).then(schemas => console.log(schemas));
     };
 
     /**
