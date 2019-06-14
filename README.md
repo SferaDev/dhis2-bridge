@@ -9,6 +9,14 @@ Once the project is ready for public usage it will be imported as a node depende
 
 ## Key concepts
 
+### Multiple instance support
+
+You can use the Bridge library on different DHIS2 instances, including the current instance of a React App or external instances with basic authentication. 
+
+When using the init method you receive a different Bridge Class Instance with independent cache/preheat/subscriptions...
+
+You can always retrieve all the existing Bridge Class Instances through an static method. 
+
 ### Cache and consistence
 
 The main goal for the Bridge library is to be ```fast```, that's why one of our core principles is to re-use metadata.
@@ -18,6 +26,14 @@ Once we ask the API for an item we store it in a cache, so that if you re-reques
 To preserve consistence over time, the cache updates any metadata element modified in the instance during the previous ```5 minutes```.
 
 Cache is enabled by default but can be disabled with a flag during the configuration process.
+
+### Metadata update subscription 
+
+Since we keep consistency of the Metadata of remote instances, we can offer a subscription pattern so you can be notified when there are changes for either any element or an specific one. 
+
+You can either wait for the consistency background task to detect the changes, reduce the wait time of the consistency task or even invalidate the cache to force a reload. 
+
+This is different from the RabbitMQ or Kafka features from DHIS2 and only depends on the ```/metadata``` endpoint. 
 
 ### Preheating
 
