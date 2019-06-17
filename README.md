@@ -3,9 +3,19 @@ Fast and simple d2 replacement written in TypeScript
 
 ## Initial notes
 
-This project is being developed as a submodule of https://github.com/SferaDev/Metadata-Management.
+This project is still in the early works, once the project is ready for public usage it will be released on a npm registry.
 
-Once the project is ready for public usage it will be imported as a node dependency.
+Development Status:
+
+| Feature              |      Status      |  Notes                    |
+|----------------------|------------------|---------------------------|
+| Multiple Instance    | Not implemeneted |                           |
+| Cache                | Basic support    | Consistence still pending |
+| Update subscriptions | Not implemented  |                           |
+| Preheating           | Basic support    |                           |
+| Schemas browsing     | Basic support    |                           |
+| Search and look-up   | Not implemented  |                           |
+
 
 ## Key concepts
 
@@ -47,7 +57,7 @@ Also during the cache-consistence clean-up, we **preheat** any recently metadata
 Preheat is disabled by default because it's a network greedy feature, it can be enabled during the configuration process.
 Even if you disable the automatic **preheat**, we expose the API so you can manually use the feature.
 
-### Model independence
+### Schema browsing with model independence
 
 The main difference of Bridge and d2, is the model independence. We use an agnostic approach to obtain the metadata.
 Instead of using the ```/api/xxx/uid.json``` endpoint we rely on the ```/api/metadata.json``` alternative.
